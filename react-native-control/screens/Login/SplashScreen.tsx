@@ -22,6 +22,7 @@ export default function SplashScreen() {
 
   const {connect, connectionState, stopMovement, startMovementInterval, disconnect} = useRosConnect();
   const [inputValue, setInputValue] = useState('192.168.117.131');
+  const [portValue, setPortValue] = useState('9090');
   const [isInputInvalid, setIsInputInvalid] = useState(false);
 
   // Closing existing connection on unmount
@@ -40,7 +41,7 @@ export default function SplashScreen() {
       return;
     }
 
-    connect(`ws://${inputValue}:9090`);
+    connect(`ws://${inputValue}:${portValue}`);
   };
   const validateInput = (value: string) => {
     const regex = /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
@@ -68,6 +69,16 @@ export default function SplashScreen() {
           isReadOnly={false}
         >
           <InputField value={inputValue} onChangeText={handleInputChange} placeholder="Enter Robot IP here"/>
+        </Input>
+        <Input
+          w="$full"
+          variant="outline"
+          size="xl"
+          isDisabled={false}
+          isReadOnly={false}
+        >
+          <InputField value={portValue} onChangeText={setPortValue}
+                      placeholder="Enter WS Port"/>
         </Input>
         {
           isInputInvalid && <AlertBox action="error" text="Invalid IP"/>

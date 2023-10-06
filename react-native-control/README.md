@@ -2,25 +2,30 @@
 
 ## Quick Starter
 
-Run the app with npm start or yarn start. This will start the Expo development server and print a QR code in your terminal.
+Run the app with npm start or yarn start. This will start the Expo development server and print a QR code in your
+terminal.
 
 ## Architecture
 
-The app is built with React Native and Expo. The UI is built with gluestack-ui. The app is built with TypeScript.
-In the ui you can insert the IP Address of the telepresence robot. The port being used is 9090.
-This needs to be adjusted if needed inside the code.
-The app then sends ROS messages to the robot to control it via the websocket protocol.
-This implementation is based on the [ROS2 Control Teleop](https://wiki.ros.org/roslibjs)
-
-This software is built above a starter kit from Gluestack.io. The original README is below.
+This app is built with React Native, Expo, and gluestack-ui, this app is coded in TypeScript. Users can input the
+robot's IP
+address; the default port, which is used to connect to the ROS Websocket, is 9090 but can be adjusted inside the code. The app
+communicates with the robot using ROS messages over a
+websocket, based on [ROS2 Control Teleop](https://wiki.ros.org/roslibjs)
+and [ROS Bridge Protocol](https://github.com/RobotWebTools/rosbridge_suite/blob/ros1/ROSBRIDGE_PROTOCOL.md). This is an
+extension of the Gluestack.io starter kit. Original README from
+Gluestack.io is below.
 
 Important Folders:
+
 - screens/Login/SplashScreen.tsx - Contains the main view that shows the control buttons and input
 - hooks/ros-hook.ts - Contains the code that connects to the robot and sends the messages
 
 # Expo gluestack-ui Head Starter Kit 🚀
 
-A comprehensive starter kit to kick-start your next mobile application using [Expo](https://expo.io/) and [gluestack-ui](https://ui.gluestack.io) - your one-stop solution for faster, smoother, and better mobile and web development.
+A comprehensive starter kit to kick-start your next mobile application using [Expo](https://expo.io/)
+and [gluestack-ui](https://ui.gluestack.io) - your one-stop solution for faster, smoother, and better mobile and web
+development.
 
 ## 👩‍💻 Built with
 
@@ -33,7 +38,8 @@ A comprehensive starter kit to kick-start your next mobile application using [Ex
 
 - **Seamless Integration**: Get up and running with Expo and gluestack-ui in no time.
 - **Modular Architecture**: Built with scalability in mind to cater to both small and large projects.
-- **Preconfigured Navigation**: Includes preconfigured navigation patterns using [Expo Router V2](https://blog.expo.dev/introducing-expo-router-v2-3850fd5c3ca1).
+- **Preconfigured Navigation**: Includes preconfigured navigation patterns
+  using [Expo Router V2](https://blog.expo.dev/introducing-expo-router-v2-3850fd5c3ca1).
 - **Theming & Styling**: Customizable themes using gluestack-ui components.
 - **Detailed Documentation**: Comprehensive documentation to guide you through every step.
 - **Extensive form handling**: Extensive implementation of handling forms and validations.
@@ -81,18 +87,25 @@ Add the font name in the `gluestack.config.js` file in the `fonts` object.
 ```javascript
 fonts: {
   heading: "inter",
-  body: "inter",
-  mono: "monospace",
-},
+    body
+:
+  "inter",
+    mono
+:
+  "monospace",
+}
+,
 ```
 
 ## 📖 Documentation
 
-For a deep dive into the components, structure, and configurations, please refer to our [detailed documentation](https://ui.gluestack.io/docs/getting-started/installation).
+For a deep dive into the components, structure, and configurations, please refer to
+our [detailed documentation](https://ui.gluestack.io/docs/getting-started/installation).
 
 ## 🧪 Testing
 
-We've set up Jest as the testing framework for this project to ensure the reliability of your codebase. You can run the tests using the following commands:
+We've set up Jest as the testing framework for this project to ensure the reliability of your codebase. You can run the
+tests using the following commands:
 
 ### Setting Up Jest with Expo
 
@@ -104,7 +117,9 @@ npx expo install jest-expo jest
 
 ### Writing Test Cases
 
-To write your own test cases, refer to the [Expo documentation on unit testing](https://docs.expo.dev/develop/unit-testing/) for comprehensive guidance and best practices.
+To write your own test cases, refer to
+the [Expo documentation on unit testing](https://docs.expo.dev/develop/unit-testing/) for comprehensive guidance and
+best practices.
 
 ### Running Tests
 
@@ -114,15 +129,20 @@ To run tests, use the following command:
 npm run test
 ```
 
-We've added an example of a Jest snapshot test case for the `SplashScreen` component. This test case uses Jest's `jest.mock` to mock a dependency and then renders the `SplashScreen` component within a `StyledProvider`. Finally, it asserts that the rendered component matches the previously saved snapshot.
+We've added an example of a Jest snapshot test case for the `SplashScreen` component. This test case uses
+Jest's `jest.mock` to mock a dependency and then renders the `SplashScreen` component within a `StyledProvider`.
+Finally, it asserts that the rendered component matches the previously saved snapshot.
 
-You can add more test cases as needed for your other components and features. This section serves as a starting point for incorporating testing into your project using Jest.
+You can add more test cases as needed for your other components and features. This section serves as a starting point
+for incorporating testing into your project using Jest.
 
 ## 🙌 Contributing
 
-We welcome contributions! Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+We welcome contributions! Contributions are what make the open source community such an amazing place to learn, inspire,
+and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo, make changes and create a pull request. You can also simply open an issue with the tag "enhancement".
+If you have a suggestion that would make this better, please fork the repo, make changes and create a pull request. You
+can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
