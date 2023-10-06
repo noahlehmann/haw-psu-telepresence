@@ -19,7 +19,7 @@ Gluestack.io is below.
 Important Folders:
 
 - [screens/Login/SplashScreen.tsx](screens/Login/SplashScreen.tsx) - Contains the main view that shows the control buttons and input
-- [hooks/ros-hook.ts](hooks/ros-hook.ts) - Contains the code that connects to the robot and sends the messages
+- [hooks/ros/ros-hook.ts](hooks/ros/ros-hook.ts) - Contains the code that connects to the robot and sends the messages
 
 # Expo gluestack-ui Head Starter Kit 🚀
 
