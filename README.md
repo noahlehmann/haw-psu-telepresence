@@ -43,6 +43,11 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 With these commands, you can now achieve basic remote control of the robot.
 
+The bots 1 to 4 have already been prepared and due to that will connect to the following WiFi on boot:
+SSID: Deine_Mutter
+Password: 69696969
+This can be changed according to your needs.
+
 
 ## Remote Control of TurtleBot
 To remotley control the Bot via Web-API you have to install Rosbridge: (This is already done for Bot Jack and George!)
