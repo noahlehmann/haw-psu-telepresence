@@ -106,8 +106,6 @@ in the folder "react-native-control". The app has been tested on Android and the
 
 [react-native-control/README.md](react-native-control/README.md)
 
-```bash
-
 ## Unattended Startup of turtlebot3_core and rosbridge_websocket (For use with Remote Control)
 To run rosbridge_websockte & turtlebot3_core on boot the following script can be used, but probably should be optimized. This script is already installed and was tested on Jack. (ros_startup.sh in /home/ubuntu)
 
