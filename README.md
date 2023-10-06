@@ -46,6 +46,13 @@ With these commands, you can now achieve basic remote control of the robot.
 The bots 1 to 4 have already been prepared and due to that will connect to the following WiFi on boot:
 SSID: Deine_Mutter
 Password: 69696969
+
+After connection has been established, you can connect via SSH to the bots. Alternatively use a display + keyboard to access the Raspberry Pi.
+
+The following username and passwords have been defined for all bots:
+User: ubuntu
+Password: PennState
+
 This can be changed according to your needs.
 
 
@@ -69,9 +76,10 @@ roslaunch rosbridge_server rosbridge_websocket.launch
 This will launch the Web API on the TCP-Port 9090 and can be accessed via network. The robot can then be controlled via API.
 
 ## Unattended Startup of turtlebot3_core and rosbridge_websocket (For use with Remote Control)
-To run rosbridge_websockte & turtlebot3_core on boot the following script can be used, but probably should be optimized. This script is already installed and was tested on Jack.
+To run rosbridge_websockte & turtlebot3_core on boot the following script can be used, but probably should be optimized. This script is already installed and was tested on Jack. (ros_startup.sh in /home/ubuntu)
 
-ros_startup.sh in /home/ubuntu:
+
+
 ```bash
 #!/bin/bash
 echo "Initialize Ros Environment"
