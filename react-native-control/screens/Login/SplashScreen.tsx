@@ -115,7 +115,6 @@ export default function SplashScreen () {
     if (intervalId > 0) {
       return;
     }
-    setIntervalId(0);
 
     const id: number = setInterval(() => {
 
