@@ -63,7 +63,7 @@ roslaunch rosbridge_server rosbridge_websocket.launch
 
 This will launch the Web API on the TCP-Port 9090 and can be accessed via network. The robot can then be controlled via API.
 
-## Unattended Startup of turtlebot3_core and rosbridge_websocket
+## Unattended Startup of turtlebot3_core and rosbridge_websocket (For use with Remote Control)
 To run rosbridge_websockte & turtlebot3_core on boot the following script can be used, but probably should be optimized. This script is already installed and was tested on Jack.
 
 ros_startup.sh in /home/ubuntu:
