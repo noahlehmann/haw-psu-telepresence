@@ -42,3 +42,46 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 
 With these commands, you can now achieve basic remote control of the robot.
+
+
+## Remote Control of TurtleBot
+To remotley control the Bot via Web-API you have to install Rosbridge: (This is already done for Bot Jack and George!)
+```bash
+sudo apt-get install ros-noetic-rosbridge-suite
+```
+
+After installation you need to update the packages:
+```bash
+source /opt/ros/noetic/setup.bash
+```
+
+Then start Turtlebot3_core and rosbridge_websocket afterwards in separate Terminal sessions:
+```bash
+roslaunch turtlebot3_bringup turtlebot3_core.launch
+roslaunch rosbridge_server rosbridge_websocket.launch
+```
+
+This will launch the Web API on the TCP-Port 9090 and can be accessed via network. The robot can then be controlled via API.
+
+## Unattended Startup of turtlebot3_core and rosbridge_websocket
+To run rosbridge_websockte & turtlebot3_core on boot the following script can be used, but probably should be optimized. This script is already installed and was tested on Jack.
+
+ros_startup.sh in /home/ubuntu:
+```bash
+#!/bin/bash
+echo "Initialize Ros Environment"
+source /opt/ros/noetic/setup.bash
+echo "Start Turtlebot Core" 
+roslaunch turtlebot3_bringup turtlebot3_core.launch & 
+sleep 20
+echo "Start Turtlebot WebAPI"
+roslaunch rosbridge_server rosbridge_websocket.launch &
+exit 0
+```
+
+Afterwards launch the script via Cronjob on boot of the Rpi. (Access via crontab -e)
+```bash
+@reboot bash /home/ubuntu/ros_startup.sh >> /home/ubuntu/ros.log 2>&1
+```
+
+
