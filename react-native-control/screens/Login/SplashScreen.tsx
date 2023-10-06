@@ -13,8 +13,8 @@ import {
   InputField,
 } from '@gluestack-ui/themed';
 import GuestLayout from '../../layouts/GuestLayout';
-import {ConnectionStatus, useRosConnect} from './ros-connect';
-import {MovementDirection} from './movements';
+import {ConnectionStatus, useRosConnect} from '../../hooks/ros/ros-hook';
+import {MovementDirection} from '../../hooks/ros/movements';
 import {Text} from 'react-native';
 import {AlertBox} from '../../components/AlertBox';
 
@@ -24,6 +24,7 @@ export default function SplashScreen() {
   const [inputValue, setInputValue] = useState('192.168.117.131');
   const [isInputInvalid, setIsInputInvalid] = useState(false);
 
+  // Closing existing connection on unmount
   useEffect(
     () => {
       return () => {

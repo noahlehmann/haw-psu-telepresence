@@ -9,12 +9,20 @@ export const enum ConnectionStatus {
   FAILED,
 }
 
+/**
+ * This hook is responsible for connecting to ROS server and sending movement commands.
+ * It returns connection state, connect function, startMovementInterval function and stopMovement function.
+ */
 export const useRosConnect = () => {
   const [connection, setConnection] = useState<null | Ros>(null);
   const [publishTopic, setPublishTopic] = useState<null | Topic>(null);
   const [connectionState, setConnectionState] = useState(ConnectionStatus.DISCONNECTED);
   const [intervalId, setIntervalId] = useState(0);
 
+  /**
+   * This function creates listeners for connection, error and close events.
+   * It also creates publish topic if the connection is successful.
+   */
   const createListener = () => {
     if (!connection) {
       throw new Error('Connection is not set');
@@ -38,6 +46,9 @@ export const useRosConnect = () => {
     });
   };
 
+  /**
+   * To send movement commands we need to create a publish topic. After that we can send messages to this topic.
+   */
   const createPublishTopic = () => {
     if (!connection) {
       return;
@@ -52,6 +63,9 @@ export const useRosConnect = () => {
     setPublishTopic(cmdVel);
   };
 
+  /**
+   * This function connects to ROS server. Returns true if connection is successful, false otherwise.
+   */
   const connect = (url: string): boolean => {
     setConnectionState(ConnectionStatus.CONNECTING);
     try {
@@ -67,6 +81,9 @@ export const useRosConnect = () => {
     }
   };
 
+  /**
+   * This function disconnects from ROS server.
+   */
   const disconnect = () => {
     if (!connection) {
       return;
@@ -76,13 +93,19 @@ export const useRosConnect = () => {
     setPublishTopic(null);
   }
 
+  /**
+   * This effect is responsible for creating listeners for connection, error and close events.
+   */
   useEffect(() => {
-
     if (connection) {
       createListener();
     }
   }, [connection]);
 
+  /**
+   * This effect is responsible for sending movement commands.
+   * Typically, you should use the MOVEMENTS object from movements.ts file.
+   */
   const sendMovement = (x: number, y: number, z: number, th: number) => {
     if (!publishTopic) {
       throw new Error('Publish topic is not set');
@@ -100,6 +123,10 @@ export const useRosConnect = () => {
       },
     });
   };
+  /**
+   * This function starts sending movement commands to the robot. It uses setInterval function to continuously send commands
+   * and move the robot.
+   */
   const startMovementInterval = (movement: MovementDirection) => {
     if (intervalId > 0) {
       return;
@@ -113,6 +140,9 @@ export const useRosConnect = () => {
     setIntervalId(id);
   };
 
+  /**
+   * This function stops sending movement commands to the robot.
+   */
   const stopMovement = () => {
     clearInterval(intervalId);
     setIntervalId(0);

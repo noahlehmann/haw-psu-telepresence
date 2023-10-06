@@ -1,3 +1,23 @@
+# Telepresence React Native Control App
+
+## Quick Starter
+
+Run the app with npm start or yarn start. This will start the Expo development server and print a QR code in your terminal.
+
+## Architecture
+
+The app is built with React Native and Expo. The UI is built with gluestack-ui. The app is built with TypeScript.
+In the ui you can insert the IP Address of the telepresence robot. The port being used is 9090.
+This needs to be adjusted if needed inside the code.
+The app then sends ROS messages to the robot to control it via the websocket protocol.
+This implementation is based on the [ROS2 Control Teleop](https://wiki.ros.org/roslibjs)
+
+This software is built above a starter kit from Gluestack.io. The original README is below.
+
+Important Folders:
+- screens/Login/SplashScreen.tsx - Contains the main view that shows the control buttons and input
+- hooks/ros-hook.ts - Contains the code that connects to the robot and sends the messages
+
 # Expo gluestack-ui Head Starter Kit 🚀
 
 A comprehensive starter kit to kick-start your next mobile application using [Expo](https://expo.io/) and [gluestack-ui](https://ui.gluestack.io) - your one-stop solution for faster, smoother, and better mobile and web development.
